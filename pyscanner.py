@@ -85,7 +85,7 @@ result = pool.starmap(scan_ports, zip(itertools.repeat(args),list(range(args.por
 pool.close() # close() is called when program is finished
 pool.join() # join() is called to wait for the processes working to terminate
 print()
-# result = [x for x in result if x is not None] # checking final result
+result = [x for x in result if x is not None] # checking final result
 for port, service, status, type in result: # result has all 4 things like port numbers, service, status and type of port
     if args.verbose > 0 or status == "Open  ": # checking if status is open
         color =  bcolors.OKGREEN if status == "Open  " else '' # if status is open then Green color is printed 
