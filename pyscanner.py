@@ -41,8 +41,8 @@ def scan_ports(args, port):  # function for scanning network ports
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # This statement is used for creating the TCP socket. SOCK_STREAM is used for TCP
             result = sock.connect_ex((args.address[0], port)) # connecting to the port address of the system
             service = socket.getservbyport(port, type) # used for knowing which service is running on the system through port number and type
-            if(service==[]):
-               service= 'svc name unavail'
+            if(service==""):
+               service= 'svc name unavailable'
             if result == 0: # checking port connection
                 status = "Open  " # status of port is open
             else:
@@ -54,8 +54,6 @@ def scan_ports(args, port):  # function for scanning network ports
             sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # This statement is used for creating the UDP socket. SOCK_DGRAM is used for UDP
             result = sock.connect_ex((args.address[0], port)) # connecting to the port address of the system
             service = socket.getservbyport(port, type) # used for knowing which service is running on the system through port number and type
-            if(service==[]):
-               service= 'svc name unavail'
             if result == 0: # checking port connection
                 status = "Open  " # status of port is open
             else:
